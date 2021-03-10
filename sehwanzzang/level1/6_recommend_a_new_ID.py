@@ -42,16 +42,7 @@ def change_id(new_id: str):
     print("step 1", step_1)
 
     # 이상한 문자 제거 step2
-    tmp = list(step_1)
-    step_2 = []
-    length = len(tmp)
-
-    for idx in range(length):
-        c = tmp[idx]
-        if is_small_letter(c) or is_number(c) or is_other_letter(c):
-            step_2.append(c)
-        else:
-            continue
+    step_2 = list(filter(lambda x: is_small_letter(x) or is_number(x) or is_other_letter(x), step_1))
     print("step 2", "".join(step_2))
 
     # 마침표가 2번이상 연속되면 하나의 마침표로 치환 : step3
