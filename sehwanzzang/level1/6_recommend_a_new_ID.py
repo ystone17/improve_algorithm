@@ -10,6 +10,7 @@ ASC_hipen = ord('-')  # 45
 ASC_underbar = ord('_')  # 95
 ASC_dot = ord('.')  # 46
 
+
 # 아스키코드 확인용
 
 
@@ -46,20 +47,7 @@ def check_dot(new_id: str) -> bool:
     return True
 
 
-def is_ok(new_id: str):
-    if len(new_id) < 3 or len(new_id) > 15:
-        return False
-    if not check_dot(new_id):
-        return False
-    for char in new_id:
-        if is_small_letter(char) or is_number(char) or is_other_letter(char):
-            return True
-        else:
-            return False
-
-
 def change_id(new_id: str):
-
     # 소문자로 치환 : step1
     step_1 = new_id.lower()
     print("step 1", step_1)
@@ -121,7 +109,7 @@ def change_id(new_id: str):
     # 2자 이하면 반복 : step 7
     if len(step_4) < 3:
         while True:
-            if len(step_4) > 2:
+            if len(step_4) == 3:
                 break
             step_4.append(step_4[-1])
     print("step 7", "".join(list(step_4)))
@@ -130,10 +118,8 @@ def change_id(new_id: str):
 
 
 def solution(new_id):
-    if is_ok(new_id):
-        return new_id
-    else:
-        return change_id(new_id)
+    return change_id(new_id)
 
-# if __name__ == "__main__":
-#     print(is_ok("z-+.^."))
+
+if __name__ == "__main__":
+    print(change_id("abcdefghijklmn.p"))
