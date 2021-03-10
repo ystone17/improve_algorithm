@@ -37,17 +37,6 @@ def is_other_letter(c: str) -> bool:
         False
 
 
-def check_dot(new_id: str) -> bool:
-    if new_id[0] == '.' or new_id[-1] == '.':
-        return False
-    for idx in range(len(new_id)):
-        if idx == 0:
-            continue
-        if new_id[idx] == '.' and new_id[idx - 1] == '.':
-            return False
-    return True
-
-
 def change_id(new_id: str):
     # 소문자로 치환 : step1
     step_1 = new_id.lower()
