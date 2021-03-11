@@ -6,7 +6,6 @@ p_3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]  # 3번 수포자
 def check_answer(pattern, answers) -> int:
     count = 0
     p_len = len(pattern)
-    print(answers)
     for i, v in enumerate(answers):
         if v == pattern[i % p_len]:
             count += 1
@@ -31,7 +30,6 @@ def solution(answers):
     p3 = check_answer(p_3, answers)
 
     if p3 > max_val:
-        max_val = p3
         result.pop()
         result.append(3)
     elif p3 == max_val:
